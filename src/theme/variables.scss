@@ -74,8 +74,21 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  // custom colors
+
+  --ion-color-offwhite: #f5f6f9;
+  --ion-color-green: #70ad47;
 }
 
+.ion-color-green {
+  --ion-color-base: #94d453;
+  --ion-color-base-rgb: 255,255,0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 0,0,0;
+  --ion-color-shade: #94d453;
+  --ion-color-tint: #94d453;
+}
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
@@ -224,6 +237,7 @@
     --ion-toolbar-background: #1f1f1f;
 
     --ion-tab-bar-background: #1f1f1f;
+
   }
 
   ion-title.title-large {
