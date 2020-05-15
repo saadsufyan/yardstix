@@ -5,14 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-list-header color="light">Results of Andrew</ion-list-header>
-  <ion-card class="welcome-card">
+  <ion-list-header color="light">Your personalised feedback</ion-list-header>
+  <ion-card class="welcome-card" *ngFor="let x of results.feedback_data; let i = index">
     <ion-card-header>
-      <ion-card-subtitle>Reviews with respect to date</ion-card-subtitle>
       <ion-card-title>Customer Satisfaction</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <canvas #lineChart></canvas>
+      <canvas #barChart></canvas>
+      <app-graphs [value]="x"></app-graphs>
     </ion-card-content>
   </ion-card>
+
+
+  <ion-row>
+    <ion-col>
+      <ion-button class="" expand="block" color="green"  [routerLink]="['/login']">Click for feedback request</ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

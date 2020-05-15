@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Chart } from 'chart.js';
-
-
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, QueryList } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SharingPage } from '../sharing/sharing.page';
+import { LoginPage } from '../login/login.page';
+import { AlertView } from 'src/uicomponents/alert';
+import { ApisService } from '../services/apis.service';
 @Component({
   selector: 'app-results',
   templateUrl: './results.page.html',
@@ -9,38 +11,41 @@ import { Chart } from 'chart.js';
 })
 export class ResultsPage implements OnInit, AfterViewInit {
 
-  @ViewChild('lineChart', {static: false}) lineChart: ElementRef;
-  bars: any;
-  colorArray: any;
-  constructor() { }
+
+  results;
+  emails = ['saadsufyan19@gmail.com', 'testing@gmail.com'];
+  errorMessage;
+  constructor(
+    public modalController: ModalController,
+    public popup: AlertView,
+    public api: ApisService) { }
 
   ngOnInit() {
   }
   ngAfterViewInit() {
-    this.createBarChart();
+    this.results = this.api.fetchData();
+    console.log(this.results);
   }
-  createBarChart() {
-    this.bars = new Chart(this.lineChart.nativeElement, {
-      type: 'line',
-      data: {
-        labels: ['4/15/2020', '4/16/2020', '4/17/2020', '4/18/2020', '4/19/2020', '4/20/2020', '4/21/2020', '4/22/2020'],
-        datasets: [{
-          label: 'Rating 0 - 100',
-          data: [25, 38, 50, 69, 69, 75, 30, 95],
-          // backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-          borderColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+  onAdd(email) {
+    console.log('email is ' + email);
+  }
+  getResults() {
+    this.api.getResultsChart('w9ipozkzxn').subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+      this.popup.hideLoader();
+      this.errorMessage = err.error;
+      console.log(this.errorMessage);
+      this.errorMessage = this.errorMessage.message;
+      this.popup.showToast(this.errorMessage, 1700, 'bottom');
     });
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: LoginPage
+    });
+    return await modal.present();
   }
 }

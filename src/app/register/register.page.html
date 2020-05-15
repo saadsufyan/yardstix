@@ -1,0 +1,70 @@
+
+<ion-content padding>
+  <!-- container -->
+  <div class="logo-box">
+    <img class="logo" src="assets/icons/Logo.png">
+  </div>
+  <!-- container -->
+<!-- signup form -->
+
+
+<ion-grid>
+  <ion-row class="form-group">
+    <ion-col class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <ion-label position="stacked">Enter your name</ion-label>
+      <!-- <ion-input></ion-input> -->
+      <ion-input type="text" class="textInput" placeholder="Enter Name" required email="true" name="username" [(ngModel)]="name" #username="ngModel"></ion-input>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+        <div *ngIf="username.errors.required" class="color">
+          Name is required.
+        </div>
+        <div *ngIf="username.errors.minlength" class="color">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
+      </ion-col>
+  </ion-row>
+  <ion-row class="form-group">
+    <ion-col class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <ion-label position="stacked">Enter Email Address</ion-label>
+      <!-- <ion-input></ion-input> -->
+      <ion-input type="email" class="textInput" placeholder="Email Address" required email="true" name="email" [(ngModel)]="email" #useremail="ngModel"></ion-input>
+        <div *ngIf="useremail.invalid && (useremail.dirty || useremail.touched)" class="alert alert-danger">
+          <div *ngIf="useremail.errors.required" class="color">
+            Email is required.
+          </div>
+          <div *ngIf="useremail.errors.email" class="danger">
+            Please provide correct email address.
+          </div>
+        </div>
+      </ion-col>
+  </ion-row>
+  <ion-row class="form-group">
+    <ion-col class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <ion-label position="stacked">Enter Password</ion-label>
+      <ion-input type="password" class="textInput" placeholder="Password" required name="password" [(ngModel)]="password" #userpassword="ngModel"></ion-input>
+        <div *ngIf="userpassword.invalid && (userpassword.dirty || userpassword.touched)" class="alert alert-danger">
+          <div *ngIf="userpassword.errors.required" class="danger">
+            password is required.
+          </div>
+        </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="form-group">
+    <ion-col class="col-12 col-sm-12 col-md-12 col-lg-12 text-right ltr">
+        <h5 class="account-text" [routerLink]="'/forgot-password' " routerDirection="forward">Forgot Password?</h5>	  
+    </ion-col>	      
+  </ion-row>
+  <ion-row class="form-group">
+    <ion-col class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <ion-button class="bottom-space" expand="block" color="green" [routerLink]="['/sharing']">Register</ion-button>
+
+      <!-- <ion-button class="btn-submit">Login</ion-button>	 -->
+      <br><br>
+      <h5 class="account-text">Already have an account? <b class="signup-text"  [routerLink]="'/login' " routerDirection="forward">Login</b></h5>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <!-- signup form -->
+</ion-content>

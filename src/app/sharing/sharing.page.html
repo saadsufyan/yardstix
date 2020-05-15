@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sharing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div id="container">
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-subtitle class="subtitle">Welcome To</ion-card-subtitle>
+        <ion-card-title>Yardstix</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Please add the recipients emails below to start your peer feedback request
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <tag-input [(ngModel)]="emails" (onSelect)="onAdd($event)"></tag-input>
+          <ion-button class="" expand="block" color="green" (click)="presentAlert()">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </div>
+
+</ion-content>

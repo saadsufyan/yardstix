@@ -7,110 +7,25 @@
 <ion-content [fullscreen]="true">
 
   <ion-grid>
-  
-
-    <!-- <ion-row class="question-box ">
-      <ion-col size="12">
-        <ion-list>
-          <ion-radio-group value="biff">
-            <ion-list-header color="dark">
-              <ion-label>School Library</ion-label>
-            </ion-list-header>
-            <p class="question-text">How often do you go to school library </p>
-        
-            <ion-item lines="none">
-              <ion-label>Everyday</ion-label>
-              <ion-radio slot="start" value="everyday"></ion-radio>
-            </ion-item>
-        
-            <ion-item lines="none">
-              <ion-label>once a week</ion-label>
-              <ion-radio slot="start" value="week"></ion-radio>
-            </ion-item>
-        
-            <ion-item lines="none">
-              <ion-label>once a month</ion-label>
-              <ion-radio slot="start" value="monthly"></ion-radio>
-            </ion-item>
-                    
-            <ion-item lines="none">
-              <ion-label>Never</ion-label>
-              <ion-radio slot="start" value="never"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </ion-col>
-      <ion-col size="12">
-        <ion-list>
-          <ion-radio-group value="biff">
-            <ion-list-header color="dark">
-              <ion-label>School News Letter</ion-label>
-            </ion-list-header>
-            <p class="question-text">How often do you read the school news letters</p>
-        
-            <ion-item lines="none">
-              <ion-label>Most month</ion-label>
-              <ion-radio slot="start" value="most"></ion-radio>
-            </ion-item>
-        
-            <ion-item lines="none">
-              <ion-label>Every month</ion-label>
-              <ion-radio slot="start" value="every"></ion-radio>
-            </ion-item>
-        
-            <ion-item lines="none">
-              <ion-label>Occasionally</ion-label>
-              <ion-radio slot="start" value="Occasionally"></ion-radio>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label>Not at all</ion-label>
-              <ion-radio slot="start" value="notAtAll"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </ion-col>
-    </ion-row> -->
-
-
     <ion-row class="question-box ">
       <ion-col size="12">
-        <ion-list>
-          <ion-radio-group value="biff">
-            <p class="question-text">How satisfied are you with teaching methodology </p>
-        
+        <ion-list *ngFor="let x of questionsList;let i = index"> 
+          <ion-radio-group value="{{x.id}}">
+            <p class="question-text">{{x.question}} </p>
             <ion-item lines="none" class="item-border-box" color="light">
-              
-              <ion-badge color="light">{{knobValues}}</ion-badge>
-              <ion-range min="0" max="100" step="1" [(ngModel)]="knobValues" color="green">
+              <ion-badge color="light">{{questionValue[i]}}</ion-badge>
+              <ion-range min="0" max="10" step="1" [(ngModel)]="questionValue[i]" color="green">
                 <ion-label slot="start">0</ion-label>
-                <ion-label slot="end">100</ion-label>
-              </ion-range>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </ion-col>
-      <ion-col size="12">
-        <ion-list>
-          <ion-radio-group value="biff">
-            <p class="question-text">How satisfied are you with course content </p>
-        
-            <ion-item lines="none" class="item-border-box" color="light">
-              
-              <ion-badge color="light">{{knobValues1}}</ion-badge>
-              <ion-range min="0" max="100" step="1" [(ngModel)]="knobValues1" color="green">
-                <ion-label slot="start">0</ion-label>
-                <ion-label slot="end">100</ion-label>
+                <ion-label slot="end">10</ion-label>
               </ion-range>
             </ion-item>
           </ion-radio-group>
         </ion-list>
       </ion-col>
     </ion-row>
-
-
     <ion-row>
       <ion-col size="12">
-        <ion-button class="" expand="block" color="green" (click)="presentAlert()">Submit</ion-button>
+        <ion-button class="" expand="block" color="green" (click)="submitFeedback()">Submit</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

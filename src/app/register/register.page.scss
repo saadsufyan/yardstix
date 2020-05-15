@@ -1,0 +1,36 @@
+.logo-box {
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    }
+
+    .logo {
+    max-width: 60%;
+    }
+
+    .textInput {
+        border-bottom: 2px solid #f4f5f8;
+        margin-bottom: 10px;
+    }
+    .account-text {
+        text-align: center;
+    }
+    .signup-text {
+        color: #94d552;
+    }
+
+    @media only screen  and (min-width : 1224px) {
+        /* Styles */
+        .logo-box {
+          text-align: center;
+          margin-top: 5%;
+          margin-bottom: 2%;
+        }
+        
+        .logo {
+          max-width: 20%;
+        }
+    }
+    .danger {
+        color: #eb445a;
+    }

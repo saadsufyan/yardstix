@@ -1,11 +1,11 @@
 #container {
   text-align: center;
 
-  position: absolute;
+  // position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  // top: 50%;
+  // transform: translateY(-50%);
 }
 
 #container strong {
@@ -30,15 +30,33 @@ ion-content ion-toolbar {
   --background: translucent;
 }
 
+.subtitle {
+  text-transform: lowercase;
+}    
+
 .bottom-space {
   margin-bottom: 2em;
   width: 40%;
 }
 .logo-box {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 .logo {
-  max-width: 70%;
+  max-width: 60%;
 }
+
+@media only screen  and (min-width : 1224px) {
+  /* Styles */
+  .logo-box {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
+  
+  .logo {
+    max-width: 20%;
+  }
+  }
