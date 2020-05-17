@@ -13,6 +13,7 @@ export class GraphsComponent implements OnInit, AfterViewInit {
 
   bars: any;
   colorArray: any;
+  loading = false;
   constructor() { }
 
   ngOnInit() {
@@ -24,37 +25,13 @@ export class GraphsComponent implements OnInit, AfterViewInit {
   createBarChart() {
 
     console.log(this.value);
-    // this.bars = new Chart(this.barChart.toArray()
-    // .filter(r => r.nativeElement.hasAttribute('foo')), {
-    //   type: 'bar',
-    //   data: {
-    //     labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-    //     datasets: [{
-    //       label: 'Rating 0 - 10',
-    //       data: this.value,
-    //       // backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-    //       borderColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-    //       borderWidth: 1
-    //     }]
-    //   },
-    //   options: {
-    //     scales: {
-    //       yAxes: [{
-    //         ticks: {
-    //           beginAtZero: true
-    //         }
-    //       }]
-    //     }
-    //   }
-    // });
-
 
     this.bars = new Chart(this.barChart.nativeElement, {
       type: 'bar',
       data: {
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        labels: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [{
-            label: 'Rating 0 - 10',
+            label: 'Rating 1 - 10',
             data: this.value,
             // data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
             // backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset

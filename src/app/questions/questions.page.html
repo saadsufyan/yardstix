@@ -14,8 +14,8 @@
             <p class="question-text">{{x.question}} </p>
             <ion-item lines="none" class="item-border-box" color="light">
               <ion-badge color="light">{{questionValue[i]}}</ion-badge>
-              <ion-range min="0" max="10" step="1" [(ngModel)]="questionValue[i]" color="green">
-                <ion-label slot="start">0</ion-label>
+              <ion-range min="1" max="10" step="1" [(ngModel)]="questionValue[i]" color="green">
+                <ion-label slot="start">1</ion-label>
                 <ion-label slot="end">10</ion-label>
               </ion-range>
             </ion-item>
