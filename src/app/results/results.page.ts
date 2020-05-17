@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, QueryList } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SharingPage } from '../sharing/sharing.page';
 import { LoginPage } from '../login/login.page';
 import { AlertView } from 'src/uicomponents/alert';
 import { ApisService } from '../services/apis.service';
+import { Chart } from 'chart.js';
+
 @Component({
   selector: 'app-results',
   templateUrl: './results.page.html',
@@ -11,8 +12,12 @@ import { ApisService } from '../services/apis.service';
 })
 export class ResultsPage implements OnInit, AfterViewInit {
 
+  @ViewChild('barChart', {static: false}) barChart: ElementRef;
 
-  results;
+  bars: any;
+  colorArray: any;
+
+  resultsArray = [];
   emails = ['saadsufyan19@gmail.com', 'testing@gmail.com'];
   errorMessage;
   constructor(
@@ -23,8 +28,9 @@ export class ResultsPage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
   ngAfterViewInit() {
-    this.results = this.api.fetchData();
-    console.log(this.results);
+    this.resultsArray = this.api.fetchData();
+    console.log(this.resultsArray);
+    this.createBarChart();
   }
   onAdd(email) {
     console.log('email is ' + email);
@@ -48,4 +54,33 @@ export class ResultsPage implements OnInit, AfterViewInit {
     });
     return await modal.present();
   }
+
+  createBarChart() {
+
+    this.bars = new Chart(this.barChart.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        datasets: [{
+            label: 'Rating 0 - 10',
+            data: this.resultsArray[0],
+            // data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
+            // backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
+            borderColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
+            borderWidth: 1
+          }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
 }
+

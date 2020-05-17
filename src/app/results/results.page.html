@@ -6,15 +6,18 @@
 
 <ion-content>
   <ion-list-header color="light">Your personalised feedback</ion-list-header>
-  <ion-card class="welcome-card" *ngFor="let x of results.feedback_data; let i = index">
-    <ion-card-header>
-      <ion-card-title>Customer Satisfaction</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <!-- <canvas #barChart></canvas> -->
-      <app-graphs [value]="x"></app-graphs>
-    </ion-card-content>
-  </ion-card>
+  <div class="suggestion"  *ngIf="resultsArray">
+    <ion-card class="welcome-card" *ngFor="let x of resultsArray; let i = index">
+      <ion-card-header>
+        <ion-card-title>Customer Satisfaction</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <app-graphs [value]="x"></app-graphs>
+      </ion-card-content>
+    </ion-card>
+    <canvas #barChart></canvas>
+  </div>
+
 
 
   <ion-row>

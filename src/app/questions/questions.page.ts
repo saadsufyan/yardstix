@@ -48,7 +48,7 @@ export class QuestionsPage implements OnInit {
     };
     this.api.giveFeedback(data).subscribe(res => {
       console.log(res);
-      this.api.send(res);
+      this.api.send(res.feedback_data);
       this.popup.hideLoader();
       this.presentAlert();
     }, err => {

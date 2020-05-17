@@ -14,6 +14,7 @@ import { TagInputModule } from 'ngx-chips';
 import { HttpClientModule } from '@angular/common/http';
 import { NetworkService } from './services/network.service';
 import { AlertView } from 'src/uicomponents/alert';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
