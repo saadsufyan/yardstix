@@ -24,8 +24,6 @@ export class GraphsComponent implements OnInit, AfterViewInit {
   }
   createBarChart() {
 
-    console.log(this.value);
-
     this.bars = new Chart(this.barChart.nativeElement, {
       type: 'bar',
       data: {

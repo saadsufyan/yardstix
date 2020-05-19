@@ -15,6 +15,7 @@ export class QuestionsPage implements OnInit {
   questionValue = [];
   questionsList;
   errorMessage;
+  uniqueString;
   constructor(
     public alertController: AlertController,
     public router: Router,
@@ -27,8 +28,9 @@ export class QuestionsPage implements OnInit {
 
   getAllQuestions() {
     this.popup.showLoader();
-    this.api.getQuestion('w9ipozkzxn').subscribe(res => {
-      console.log(res);
+    this.uniqueString = localStorage.getItem('referral');
+    this.api.getQuestion(this.uniqueString).subscribe(res => {
+      // console.log(res);
       this.questionsList = res.questions;
       this.popup.hideLoader();
     }, err => {
@@ -43,11 +45,11 @@ export class QuestionsPage implements OnInit {
   submitFeedback() {
     this.popup.showLoader();
     const data = {
-      link: 'w9ipozkzxn',
+      link: this.uniqueString,
       answers: this.questionValue
     };
     this.api.giveFeedback(data).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.api.send(res.feedback_data);
       this.popup.hideLoader();
       this.presentAlert();
@@ -61,7 +63,6 @@ export class QuestionsPage implements OnInit {
     });
   }
   async presentAlert() {
-    console.log(this.questionValue);
     const alert = await this.alertController.create({
       header: 'Feedback',
       subHeader: 'Completed',

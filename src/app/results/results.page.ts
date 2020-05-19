@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 import { AlertView } from 'src/uicomponents/alert';
 import { ApisService } from '../services/apis.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results',
@@ -28,8 +29,10 @@ export class ResultsPage implements OnInit, AfterViewInit {
   ];
   emails = ['saadsufyan19@gmail.com', 'testing@gmail.com'];
   errorMessage;
+  public isEmpty = true;
+  uniqueString: string;
   constructor(
-    public modalController: ModalController,
+    public router: Router,
     public popup: AlertView,
     public api: ApisService) { }
 
@@ -37,14 +40,25 @@ export class ResultsPage implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.resultsArray = this.api.fetchData();
-    console.log(this.resultsArray);
+    this.isEmpty = false;
+    if (this.resultsArray === undefined) {
+      this.isEmpty = true;
+      this.getResults();
+    }
   }
   onAdd(email) {
     console.log('email is ' + email);
   }
   getResults() {
-    this.api.getResultsChart('w9ipozkzxn').subscribe(res => {
-      console.log(res);
+    this.popup.showLoader();
+    this.uniqueString = localStorage.getItem('referral');
+    this.api.getResultsChart(this.uniqueString).subscribe(res => {
+      // console.log(res);
+      this.popup.hideLoader();
+      if (res.data) {
+        this.isEmpty = false;
+        this.resultsArray = res.data;
+      }
     }, err => {
       console.log(err);
       this.popup.hideLoader();
@@ -55,12 +69,12 @@ export class ResultsPage implements OnInit, AfterViewInit {
     });
   }
 
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: LoginPage
-    });
-    return await modal.present();
+  goToNextPage() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['sharing']);
+    } else {
+      this.router.navigate(['register']);
+    }
   }
-
 }
 

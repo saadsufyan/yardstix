@@ -22,9 +22,9 @@ export class NetworkService {
   }
 
   getMultiPartHeaders() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
     const header = {
-      'x-access-token': user.accessToken,
+      'x-access-token': token,
     };
     const headers = new HttpHeaders(header);
     return headers;
@@ -32,9 +32,9 @@ export class NetworkService {
 
   getHeaders() {
     const userIsLoggedIn = localStorage.getItem('isLoggedIn');
-    const user = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
     if (userIsLoggedIn === 'true') {
-      return this.getAuthHeaders(user);
+      return this.getAuthHeaders(token);
     } else if (userIsLoggedIn === 'false') {
       return this.getClientHeaders();
     } else {
@@ -50,7 +50,7 @@ export class NetworkService {
   getAuthHeaders(token) {
     const header = {
       'Content-Type': 'application/json',
-      'x-access-token': token.accessToken,
+      'x-access-token': token,
     };
     const headers = new HttpHeaders(header);
     return headers;

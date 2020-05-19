@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -8,8 +8,16 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  uniqueString;
 
-  constructor(public alertController: AlertController, public router: Router) {}
+  constructor(
+    public alertController: AlertController,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) {
+      this.uniqueString = this.router.url.split('/');
+      this.uniqueString = this.uniqueString[2];
+      localStorage.setItem('referral', this.uniqueString);
+    }
   async onReject() {
     const alert = await this.alertController.create({
       header: 'Feedback',
@@ -27,7 +35,7 @@ export class HomePage {
         {
           text: 'YES',
           handler: () => {
-            this.router.navigate(['sharing']);
+            this.router.navigate(['register']);
           }
         }
       ]

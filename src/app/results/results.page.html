@@ -17,11 +17,16 @@
     </ion-card>
   </div>
 
-
+  <ion-row class="row" *ngIf="isEmpty">
+    <ion-col class="text-center empty-box">
+        <img src="assets/images/no-data.png" class="empty-img">
+        <p>No rosponses available at the moment</p>
+    </ion-col>
+  </ion-row>
 
   <ion-row>
     <ion-col>
-      <ion-button class="" expand="block" color="green"  [routerLink]="['/login']">Click for feedback request</ion-button>
+      <ion-button class="" expand="block" color="green"  (click)="goToNextPage()">Click for feedback request</ion-button>
     </ion-col>
   </ion-row>
 
