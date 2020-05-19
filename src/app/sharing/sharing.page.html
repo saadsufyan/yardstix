@@ -7,6 +7,10 @@
 
 <ion-content>
 
+  <div class="logo-box">
+    <img class="logo" src="assets/icons/Logo.png">
+  </div>
+
   <div id="container">
     <ion-card>
 
@@ -19,7 +23,17 @@
       </ion-card-content>
       <ion-row>
         <ion-col>
-          <tag-input [(ngModel)]="emails" (onSelect)="onAdd($event)"></tag-input>
+          <tag-input [(ngModel)]="emails" secondaryPlaceholder="Enter email to invite" placeholder="Enter email to invite" #useremail="ngModel" (onSelect)="onAdd($event)"></tag-input>
+
+          <div *ngIf="useremail.invalid && (useremail.dirty || useremail.touched)" class="alert alert-danger">
+            <div *ngIf="useremail.errors.required" class="color">
+              Email is required.
+            </div>
+            <div *ngIf="useremail.errors.email" class="danger">
+              Please provide correct email address.
+            </div>
+          </div>
+
           <ion-button class="" expand="block" color="green" (click)="sendFeedbackRequest()">Submit</ion-button>
         </ion-col>
       </ion-row>

@@ -43,7 +43,7 @@ export class AlertView {
     this.isLoading = true;
     return await this.loadingCtrl.create({
       message: 'Loading. Please Wait...',
-      duration: 20000,
+      duration: 90000,
     }).then(a => {
       a.present().then(() => {
         if (!this.isLoading) {

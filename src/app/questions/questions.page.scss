@@ -14,10 +14,25 @@
     background-color: #a0a;
 }
 
-.item-border-box {
-    // border-radius: 10px;
-}
-// ion-content{
-//     // --ion-background-color:#111D12;
-//     --background: #fff url('../../assets/images/pink.jpg') no-repeat center center / cover;
-//   }
+.logo-box {
+    text-align: center;
+    margin-top: 15%;
+    // margin-bottom: 15%;
+  }
+  
+  .logo {
+    max-width: 60%;
+  }
+  
+  @media only screen  and (min-width : 1224px) {
+    /* Styles */
+    .logo-box {
+      text-align: center;
+      margin-top: 5%;
+      margin-bottom: 2%;
+    }
+    
+    .logo {
+      max-width: 20%;
+    }
+    }

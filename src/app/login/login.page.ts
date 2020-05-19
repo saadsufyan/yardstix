@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  email;
+  password;
   errorMessage;
   constructor(
     public popup: AlertView,
@@ -19,12 +21,12 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  userLogin(userEmail: string, userPassword: string) {
-    if (userEmail && userPassword) {
+  userLogin() {
+    if (this.email && this.password) {
       this.popup.showLoader();
       const data = {
-        email: userEmail,
-        password: userPassword
+        email: this.email,
+        password: this.password
       };
       this.api.login(data).subscribe(
         (res: any) => {

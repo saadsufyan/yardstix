@@ -5,3 +5,27 @@
     padding: 95px;
     text-align: center;
 }
+
+
+.logo-box {
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 7%;
+  }
+  
+  .logo {
+    max-width: 60%;
+  }
+  
+  @media only screen  and (min-width : 1224px) {
+    /* Styles */
+    .logo-box {
+      text-align: center;
+      margin-top: 5%;
+      margin-bottom: 2%;
+    }
+    
+    .logo {
+      max-width: 20%;
+    }
+    }

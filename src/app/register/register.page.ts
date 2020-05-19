@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage implements OnInit {
 
+  name;
+  email;
+  password;
   errorMessage;
   constructor(
     public popup: AlertView,
@@ -18,18 +21,18 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
   }
-  signupUser(userName: string, userEmail: string, userPassword: string) {
+  signupUser() {
     if (
-      userName &&
-      userEmail &&
-      userPassword
+      this.name &&
+      this.email &&
+      this.password
     ) {
       this.popup.showLoader();
 
       const data = {
-        name: userName,
-        email: userEmail,
-        password: userPassword
+        name: this.name,
+        email: this.email,
+        password: this.password
       };
 
       this.api.register(data).subscribe(

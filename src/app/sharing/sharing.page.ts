@@ -13,15 +13,15 @@ import { AlertView } from 'src/uicomponents/alert';
 })
 export class SharingPage implements OnInit {
 
-  emails = ['saadsufyan19@gmail.com', 'testing@gmail.com'];
-  errorMessage;
-
   constructor(
     public alertController: AlertController,
     public router: Router,
     public api: ApisService,
     public popup: AlertView,
     public modalController: ModalController) { }
+
+  emails = [];
+  errorMessage;
 
   ngOnInit() {
   }
@@ -70,4 +70,5 @@ export class SharingPage implements OnInit {
 
     await alert.present();
   }
+
 }

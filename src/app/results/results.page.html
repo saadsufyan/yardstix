@@ -5,6 +5,11 @@
 </ion-header>
 
 <ion-content>
+
+  <div class="logo-box">
+    <img class="logo" src="assets/icons/Logo.png">
+  </div>
+
   <ion-list-header color="light">Your personalised feedback</ion-list-header>
   <div class="suggestion"  *ngIf="resultsArray">
     <ion-card class="welcome-card" *ngFor="let x of resultsArray; let i = index">
