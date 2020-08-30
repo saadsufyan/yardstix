@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sharing</ion-title>
+    <ion-title>Sharing</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,14 +16,14 @@
 
       <ion-card-header>
         <ion-card-subtitle class="subtitle">Welcome To</ion-card-subtitle>
-        <ion-card-title>Yardstix</ion-card-title>
+        <ion-card-title>Yardstix <sup>MVP</sup></ion-card-title>
       </ion-card-header>
       <ion-card-content>
         Please add the recipients emails below to start your peer feedback request
       </ion-card-content>
       <ion-row>
         <ion-col>
-          <tag-input [(ngModel)]="emails" secondaryPlaceholder="Enter email to invite" placeholder="Enter email to invite" #useremail="ngModel" (onSelect)="onAdd($event)"></tag-input>
+          <tag-input size="50" [(ngModel)]="emails" secondaryPlaceholder="Enter email to invite" placeholder="Enter email to invite" #useremail="ngModel" (onSelect)="onAdd($event)"></tag-input>
 
           <div *ngIf="useremail.invalid && (useremail.dirty || useremail.touched)" class="alert alert-danger">
             <div *ngIf="useremail.errors.required" class="color">

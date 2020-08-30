@@ -15,16 +15,16 @@ export class ResultsPage implements OnInit, AfterViewInit {
   resultsArray = [];
   headingArray = [
     'Presentable',
-    'Demonstrable',
-    'Punctuality',
-    'Inspiring',
-    'Effectiveness',
+    'Excellence',
+    'Achieves Deadlines',
+    'Inspirational',
+    'Effective',
     'Collaborative',
-    'Industry knowledge',
-    'Flexibility',
-    'Communicative',
-    'Value People',
-    'Brave',
+    'Knowledgable',
+    'Strategy',
+    'Communication',
+    'Values People',
+    'Progressive',
     'Leadership'
   ];
   emails = ['saadsufyan19@gmail.com', 'testing@gmail.com'];

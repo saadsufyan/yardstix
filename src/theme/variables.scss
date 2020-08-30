@@ -78,16 +78,16 @@
   // custom colors
 
   --ion-color-offwhite: #f5f6f9;
-  --ion-color-green: #70ad47;
+  --ion-color-green: #28A745;
 }
 
 .ion-color-green {
-  --ion-color-base: #94d453;
-  --ion-color-base-rgb: 255,255,0;
+  --ion-color-base: #28A745;
+  --ion-color-base-rgb: 40, 167, 69;
   --ion-color-contrast: #ffffff;
   --ion-color-contrast-rgb: 0,0,0;
-  --ion-color-shade: #94d453;
-  --ion-color-tint: #94d453;
+  --ion-color-shade: #2c824f;
+  --ion-color-tint: #73d886;
 }
 @media (prefers-color-scheme: dark) {
   /*

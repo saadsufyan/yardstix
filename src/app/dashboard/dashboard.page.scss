@@ -1,0 +1,30 @@
+.text-center {
+    text-align: center;
+}
+
+
+.box1 {
+    // border: 1px solid;
+    border-radius: 5px;
+    margin: 0px 5px 0px 0px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    // background: #70ad47;
+    color: #000000;
+}
+
+.box2 {
+    // border: 1px solid;
+    border-radius: 5px;
+    margin: 0px 0px 0px 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    // background: #163a80;
+    color: #000000;
+}
+.labl {
+    font-size: 16px;
+    font-weight: 300;
+}

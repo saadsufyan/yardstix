@@ -38,9 +38,30 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "src/assets/css/bootstrap.min.css"
+              },
+              {
+                "input": "src/assets/css/responsive.css"
+              },
+              {
+                "input": "src/assets/css/aos.css"
               }
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/uikit-icons.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/modernizr.js",
+              "src/assets/js/counter.js",
+              "src/assets/js/fontawesome.min.js",
+              "src/assets/js/contact.js",
+              "src/assets/js/aos.js",
+              "src/assets/js/tweenmax.min.js",
+              "src/assets/js/counter.js",
+              "src/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {

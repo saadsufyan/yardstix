@@ -12,16 +12,15 @@ import { AlertView } from 'src/uicomponents/alert';
   providers: [ApisService]
 })
 export class SharingPage implements OnInit {
-
+  newEmails = [];
+  emails;
+  errorMessage;
   constructor(
     public alertController: AlertController,
     public router: Router,
     public api: ApisService,
     public popup: AlertView,
     public modalController: ModalController) { }
-
-  emails = [];
-  errorMessage;
 
   ngOnInit() {
   }
@@ -31,10 +30,15 @@ export class SharingPage implements OnInit {
 
   sendFeedbackRequest() {
     this.popup.showLoader();
+    console.log(this.emails[0].value);
+    for (let i= 0; i < this.emails.length; i++) {
+      this.newEmails.push(this.emails[i].value);
+    }
     const data = {
-      email: this.emails,
+      email: this.newEmails,
       base_url: 'https://feedbackapp-84297.web.app/home/'
     };
+    console.log(data);
     this.api.feedbackRequest(data).subscribe(res => {
       // console.log(res);
       this.popup.hideLoader();
@@ -53,7 +57,7 @@ export class SharingPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Feedback',
       subHeader: 'sent',
-      message: 'The feedback request has been sent to the given emails',
+      message: 'The feedback request has been sent to the emails provided',
       // buttons: ['OK']
       buttons: [
         {

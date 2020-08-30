@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="dashboard-boxes">
+    <ion-row>
+      <ion-col col-12 class="text-center">
+        <h1>
+          Welcome {{user.name}}
+        </h1>
+        <!-- <h4>
+          {{user.email}}
+        </h4> -->
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-top: 10%;">
+      <ion-col col-6 class="box1" [routerLink]="['/sharing']">
+        <img src="assets/images/survey-icon.png">
+        <span class="labl"><br>
+          click here to create your survey
+        </span>
+      </ion-col>
+      <ion-col col-6 offset-3 class="box2" [routerLink]="['/results']">
+        <img src="assets/images/graph-icon.png">
+        <span class="labl"><br>
+          click here to see your survey responses
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -72,7 +72,7 @@ export class QuestionsPage implements OnInit {
         {
           text: 'OK',
           handler: () => {
-            this.router.navigate(['results']);
+            this.router.navigate(['register']);
           }
         }
       ]
